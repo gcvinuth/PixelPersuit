@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Pixel Pursuit: The Collector's Vault | 2D Olympiad Escape Room</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="description" content="Infiltrate Baron Von Klaus's mansion in this 2D pixel-art escape room game. Master Olympiad-level logic deduction, spatial graph theory, and number theory deciphering to retrieve the Chronos Oculus.">
+  <meta name="theme-color" content="#d97706">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PixelPursuit">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+  <div id="app-container">
+
+    <!-- TITLE / SPLASH SCREEN -->
+    <div id="title-screen" class="title-screen">
+      <div class="title-banner-wrap">
+        <img src="./assets/banner.jpg" alt="Pixel Pursuit: The Collector's Vault" class="title-banner-img">
+      </div>
+      <p class="title-subtitle">AN INTELLECTUAL HEIST OF LOGIC, DEDUCTION & OLYMPIAD CIPHERS</p>
+      
+      <div class="title-buttons">
+        <button id="btn-start-game" class="btn-primary">Initiate Heist</button>
+        <button id="btn-continue" class="btn-secondary hidden">Resume Mission</button>
+        <button id="btn-how-to-play" class="btn-secondary">Mission Dossier & Controls</button>
+        <button id="btn-install-pwa" class="btn-small btn-install hidden">📥 Install App (PWA)</button>
+      </div>
+    </div>
+
+    <!-- HUD HEADER -->
+    <header id="game-hud" class="hud-header hidden">
+      <div class="hud-left">
+        <div id="zone-title" class="zone-badge">ZONE 1: THE PRIVATE STUDY</div>
+        <div id="timer-display" class="timer-box">⏱ 00:00</div>
+      </div>
+      <div class="hud-right">
+        <button id="btn-open-notebook" class="hud-btn" title="Open Detective Notebook [N]">📓 Journal [N]</button>
+        <button id="btn-toggle-controls" class="hud-btn" title="Toggle On-screen D-Pad">🎮 Pad: ON</button>
+        <button id="btn-toggle-sound" class="hud-btn" title="Mute/Unmute Audio">🔊</button>
+      </div>
+    </header>
+
+    <!-- GAME CANVAS VIEWPORT -->
+    <main class="game-viewport">
+      <canvas id="gameCanvas" class="hidden"></canvas>
+
+      <!-- Floating Interaction Prompt Bar -->
+      <div id="prompt-bar" class="prompt-bar hidden">
+        <span id="prompt-text">[E] Inspect Object</span>
+      </div>
+
+      <!-- Retro Dialogue / Inspection Box -->
+      <div id="dialogue-box" class="dialogue-box hidden">
+        <div class="dialogue-speaker">
+          <span>🕵️</span>
+          <span>SPECTRE'S MONOCLE HUD</span>
+        </div>
+        <div id="dialogue-text" class="dialogue-text"></div>
+        <div class="dialogue-hint">Tap anywhere to dismiss</div>
+      </div>
+    </main>
+
+    <!-- MOBILE ON-SCREEN CONTROLS -->
+    <div id="mobile-controls-layer" class="mobile-controls">
+      <!-- Responsive D-Pad -->
+      <div id="mobile-dpad-container" class="mobile-dpad">
+        <button class="dpad-btn dpad-up" data-dir="up">▲</button>
+        <button class="dpad-btn dpad-down" data-dir="down">▼</button>
+        <button class="dpad-btn dpad-left" data-dir="left">◀</button>
+        <button class="dpad-btn dpad-right" data-dir="right">▶</button>
+        <div class="dpad-center"></div>
+      </div>
+
+      <!-- Action Button -->
+      <div id="mobile-action-container" class="mobile-action-container">
+        <button id="btn-mobile-action" class="btn-mobile-act">A</button>
+      </div>
+    </div>
+
+    <!-- PUZZLE & INSPECTION MODAL OVERLAY -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal-content-wrap">
+        <button id="btn-modal-close" class="btn-close-modal">✕ Disengage [ESC]</button>
+        <div id="modal-body" class="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- DETECTIVE NOTEBOOK & SCRATCHPAD OVERLAY -->
+    <div id="notebook-overlay" class="modal-overlay hidden">
+      <div class="modal-content-wrap">
+        <div id="notebook-body" class="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- ZONE TRANSITION SCREEN FADE -->
+    <div id="screen-fade" class="screen-fade hidden"></div>
+
+  </div>
+
+  <!-- Main ES Module Script -->
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "pixel-pursuit",
+  "version": "1.0.0",
+  "description": "2D Single-Player Pixel Art Escape Room with Olympiad Logic Puzzles",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["escape-room", "pixel-art", "pwa", "olympiad-puzzles", "logic-game"],
+  "author": "Antigravity",
+  "license": "MIT"
+}
